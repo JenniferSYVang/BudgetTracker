@@ -61,6 +61,7 @@ public class MonthlyData extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         Expense expense = (Expense) extras.getSerializable("Expense");
         monthTV.setText(expense.toString());
+        ///jfal
     }
 
 
