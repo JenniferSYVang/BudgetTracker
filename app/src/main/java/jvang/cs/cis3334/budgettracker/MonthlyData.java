@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MonthlyData extends AppCompatActivity {
-    TextView month;
+    TextView monthTV;
     Date today = new Date();
     String mnth;
     String monthHolder;
@@ -16,7 +16,7 @@ public class MonthlyData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_monthly_data);
 
-        month = (TextView) findViewById(R.id.textViewMonth);
+        monthTV = (TextView) findViewById(R.id.textViewMonth);
 
         mnth = today.toString();
 
@@ -56,6 +56,14 @@ public class MonthlyData extends AppCompatActivity {
         else if(mnth.contains("Dec")) {
             monthHolder = "December";
         }
-        month.setText(monthHolder);
+        monthTV.setText(monthHolder);
+
+        Bundle extras = getIntent().getExtras();
+        Expense expense = (Expense) extras.getSerializable("Expense");
+        monthTV.setText(expense.toString());
     }
+
+
+
+
 }

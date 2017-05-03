@@ -18,6 +18,8 @@ public class GetAmount extends AppCompatActivity {
     EditText amount;
     Button save;
     String btn;
+    Expense expense;
+    Double amountDbl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,47 +37,69 @@ public class GetAmount extends AppCompatActivity {
 
         title.setText("Amount spent on " + btn.toUpperCase() + ": $");
 
+        amountDbl = Double.parseDouble(amount.getText().toString());
+
         save.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (btn.equalsIgnoreCase("Fun")) {
-                    Toast.makeText(getApplicationContext(), "Fun amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Fun amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Fun");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Dining Out")){
-                    Toast.makeText(getApplicationContext(), "Dining amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Dining amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Dining Out");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Clothes")){
-                    Toast.makeText(getApplicationContext(), "Clothes amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Clothes amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Clothes");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Miscellaneous")){
-                    Toast.makeText(getApplicationContext(), "Miselleanous amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Miselleanous amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Miscellaneous");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Gas")){
-                    Toast.makeText(getApplicationContext(), "Gas amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Gas amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Gas");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Groceries")){
-                    Toast.makeText(getApplicationContext(), "Groceries amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Groceries amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Groceries");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Cellphone")){
-                    Toast.makeText(getApplicationContext(), "Cell amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Cell amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Cellphone");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Savings")){
-                    Toast.makeText(getApplicationContext(), "Savings amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Savings amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Savings");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Rent/Mortgage")){
-                    Toast.makeText(getApplicationContext(), "Rent amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Rent amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Rent/Mortgage");
+                    expense.setAmount(amountDbl);
                 }
                 else if(btn.equalsIgnoreCase("Utilities")){
-                    Toast.makeText(getApplicationContext(), "Utilities amount = $" + amount.getText().toString(), Toast.LENGTH_LONG)
+                    Toast.makeText(getApplicationContext(), "Utilities amount = $" + amountDbl, Toast.LENGTH_LONG)
                             .show();
+                    expense.setType("Utilities");
+                    expense.setAmount(amountDbl);
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "ERROR! Something happened that wasn't suppose to. ", Toast.LENGTH_LONG)
@@ -83,8 +107,7 @@ public class GetAmount extends AppCompatActivity {
                 }
 
                 Intent actMonthlyData = new Intent(GetAmount.this, MonthlyData.class);
-                actMonthlyData.putExtra("Categories", btn);
-                actMonthlyData.putExtra("Amount", amount.getText().toString());
+                actMonthlyData.putExtra("Expense", expense);
                 startActivity(actMonthlyData);
             }
         });
