@@ -18,6 +18,14 @@
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="37dp" />
 
+    <TextView
+        android:id="@+id/textViewDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="example"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Select an expense to look at." />
+            android:text="Select an expense to look at ->"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <Spinner
             android:id="@+id/spinnerExpenses"
@@ -51,6 +60,7 @@
         android:text="View Expense" />
 
     <ListView
+        android:id="@+id/showInfoLV"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity
 
         rentBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startSecondScreen("Categories", "Rent/Mortgage");
+                startSecondScreen("Categories", "Rent");
             }
         });
 
@@ -130,9 +130,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     // starts a new intent passing an two strings; tag and data that needs to be passed
-    public void startSecondScreen(String tag, String name){
+    public void startSecondScreen(String cat, String expense){
         Intent actGetAmount = new Intent(MainActivity.this, GetAmount.class);
-        actGetAmount.putExtra(tag, name);
+        actGetAmount.putExtra(cat, expense);
         startActivity(actGetAmount);
     }
 

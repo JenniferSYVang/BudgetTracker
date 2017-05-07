@@ -7,19 +7,31 @@ import java.io.Serializable;
  */
 
 public class Expense implements Serializable{
+    private String key;
     private String type;
     private Double amount;
+    private String year;
+    private String month;
 
     public Expense(){
-        type = "";
-        amount = 0.0;
     }
 
-    public Expense(String inType, Double inAmount){
+    public Expense(String inYear, String inMonth, String inType, Double inAmount){
+        year = inYear;
         type = inType;
         amount = inAmount;
+        month = inMonth;
     }
-
+    public Expense(String inKey, String inYear,  String inMonth, String inType, Double inAmount){
+        key = inKey;
+        type = inType;
+        amount = inAmount;
+        year = inYear;
+        month = inMonth;
+    }
+    public Expense(Double inAmount){
+        amount = inAmount;
+    }
 
     public Double getAmount() {
         return amount;
@@ -37,9 +49,23 @@ public class Expense implements Serializable{
         this.type = type;
     }
 
-    @Override
-    public String toString(){
-        return "The expense entered was: " + type + " = " + amount;
+    public String getYear() {return year; }
+
+    public void setYear(String year) {this.year = year; }
+
+    public String getMonth() {return month; }
+
+    public void setMonth(String month) {this.month = month; }
+
+    public String getKey() {
+        return key;
     }
 
+    public void setKey(String key){this.key = key; }
+
+
+    @Override
+    public String toString(){
+        return year+ " " + month + " " + type + " " + amount;
+    }
 }

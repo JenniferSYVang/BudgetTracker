@@ -1,34 +1,57 @@
 package jvang.cs.cis3334.budgettracker;
 
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jvang5 on 5/3/2017.
  */
 
 public class MonthlyFirebaseData {
-    DatabaseReference monthlyDBRef;
-    public String currentMonth;
+    DatabaseReference dBRef;
+    public String month;
+    public String year = "2017";
 
-    public DatabaseReference open()  {
+    public DatabaseReference open(AppCompatActivity MonthlyData)  {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        monthlyDBRef = database.getReference(currentMonth);
-        return monthlyDBRef;
+        dBRef = database.getReference(year);
+        return dBRef;
     }
 
     public void close() {
 
     }
 
-   /* public Expense createFish( String species, String weightInOz, String dateCaught) {           //Added String rating as a parameter
-        // ---- Get a new database key for the vote
-        String key = myFishDbRef.child(FishDataTag).push().getKey();
-        // ---- set up the fish object
-        Fish newFish = new Fish(key, species, weightInOz, dateCaught);
-        // ---- write the vote to Firebase
-        myFishDbRef.child(key).setValue(newFish);
-        return newFish;
+   public Expense createExpense(String year, String month, String type, Double amount) {
+        // ---- Get a new database key for the amount
+        String key = dBRef.child(year).push().getKey();
+        // ---- set up new expense
+       Expense newExpense = new Expense(key, year, month, type, amount);
+        // ---- write the expense to Firebase
+        dBRef.child(month).child(type).child(key).setValue(amount);
+        return newExpense;
+   }
+
+   /* public void deleteExpense(Expense inExpense) {
+        String key = inExpense.getKey();
+        dBRef.child(inExpense.getYear()).child(inExpense.getMonth()).child(inExpense.getType()).removeValue();
     }*/
+
+   public List<Expense> getAllExpenses(DataSnapshot dataSnapshot) {
+        List<Expense> expenseList = new ArrayList<Expense>();
+        // loop only over the expenses
+        for (DataSnapshot data : dataSnapshot.getChildren()) {
+            Expense expense = data.getValue(Expense.class);
+            expenseList.add(expense);
+        }
+        return expenseList;
+   }
 }
