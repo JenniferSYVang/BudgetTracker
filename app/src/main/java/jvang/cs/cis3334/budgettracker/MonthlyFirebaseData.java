@@ -22,7 +22,7 @@ public class MonthlyFirebaseData {
     public DatabaseReference open(AppCompatActivity MonthlyData)  {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        dBRef = database.getReference(year);
+        dBRef = database.getReference();
         return dBRef;
     }
 
@@ -32,11 +32,11 @@ public class MonthlyFirebaseData {
 
    public Expense createExpense(String year, String month, String type, Double amount) {
         // ---- Get a new database key for the amount
-        String key = dBRef.push().getKey();
+        String key = dBRef.child(year).push().getKey();
         // ---- set up new expense
        Expense newExpense = new Expense(key, year, month, type, amount);
         // ---- write the expense to Firebase
-        dBRef.child(year).child(month).child(type).child(key).setValue(amount);
+        dBRef.child(year).child(month).child(type).child(key).setValue(newExpense);
         return newExpense;
    }
 
@@ -51,7 +51,6 @@ public class MonthlyFirebaseData {
         for (DataSnapshot data : dataSnapshot.getChildren()) {
             String key = data.getKey();
             Expense expense = data.getValue(Expense.class);
-            expense.setKey(key);
             expenseList.add(expense);
         }
         return expenseList;
