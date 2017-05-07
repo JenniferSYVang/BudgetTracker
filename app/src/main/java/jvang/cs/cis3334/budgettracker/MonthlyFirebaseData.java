@@ -22,7 +22,7 @@ public class MonthlyFirebaseData {
     public DatabaseReference open(AppCompatActivity MonthlyData)  {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        dBRef = database.getReference();
+        dBRef = database.getReference(year);
         return dBRef;
     }
 
