@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity
 
     // Declare Variables
     Button funBtn, diningBtn, clothesBtn, miscellaneousBtn, gasBtn, groceriesBtn, cellBtn, savingsBtn, rentBtn, utilitiesBtn;
+    Month today;
 
     public static Context getContext() {
         return MainActivity.getContext();
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        today = new Month();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +44,9 @@ public class MainActivity extends AppCompatActivity
                 Snackbar.make(view, "Monthly Data", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent actMonthlyData = new Intent(MainActivity.this, MonthlyData.class);
+                actMonthlyData.putExtra("Expense", new Expense(today.getYear(), today.getMonth()));
                 startActivity(actMonthlyData);
+
             }
         });
 

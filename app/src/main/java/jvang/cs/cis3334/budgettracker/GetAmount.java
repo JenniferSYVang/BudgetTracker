@@ -28,12 +28,14 @@ public class GetAmount extends AppCompatActivity {
     Date today;
     DatabaseReference myDB;
     MonthlyFirebaseData myRef;
+    Month date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_amount);
 
+        date = new Month();
         // Declaring variables
         expense = new Expense();
         Bundle extras = getIntent().getExtras();
@@ -98,55 +100,11 @@ public class GetAmount extends AppCompatActivity {
                             .show();
                 }
 
-                //Toast.makeText(getApplicationContext(), btn + " amount = $" + amountDbl, Toast.LENGTH_LONG)
-                  //      .show();
-                today = new Date();
-
-                mnth = today.toString();
-                year = mnth.substring(24,28);
-
-                if(mnth.contains("Jan")) {
-                    monthHolder = "January";
-                }
-                else if(mnth.contains("Feb")) {
-                    monthHolder = "February";
-                }
-                else if(mnth.contains("Mar")) {
-                    monthHolder = "March";
-                }
-                else if(mnth.contains("Apr")) {
-                    monthHolder = "April";
-                }
-                else if(mnth.contains("May")) {
-                    monthHolder = "May";
-                }
-                else if(mnth.contains("Jun")) {
-                    monthHolder = "June";
-                }
-                else if(mnth.contains("Jul")) {
-                    monthHolder = "July";
-                }
-                else if(mnth.contains("Aug")) {
-                    monthHolder = "August";
-                }
-                else if(mnth.contains("Sep")) {
-                    monthHolder = "September";
-                }
-                else if(mnth.contains("Oct")) {
-                    monthHolder = "October";
-                }
-                else if(mnth.contains("Nov")) {
-                    monthHolder = "Novemeber";
-                }
-                else if(mnth.contains("Dec")) {
-                    monthHolder = "December";
-                }
-
-                expense.setYear(year);
-                expense.setMonth(monthHolder);
-
+                year = date.getYear();
+                monthHolder = date.getMonth();
                 myRef.createExpense(year, monthHolder, expense.getType(), amountDbl);
-
+                expense.setMonth(monthHolder);
+                expense.setYear(year);
 
                 // Pass the expense to the activity
                 Intent actMonthlyData = new Intent(GetAmount.this, MonthlyData.class);

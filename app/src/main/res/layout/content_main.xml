@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/rent_mortgage"
+            android:text="Rent"
             tools:ignore="ButtonStyle" />
 
         <Button

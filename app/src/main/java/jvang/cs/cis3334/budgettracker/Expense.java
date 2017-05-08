@@ -16,10 +16,8 @@ public class Expense implements Serializable{
     public Expense(){
     }
 
-    public Expense(String inYear, String inMonth, String inType, Double inAmount){
+    public Expense(String inYear, String inMonth){
         year = inYear;
-        type = inType;
-        amount = inAmount;
         month = inMonth;
     }
     public Expense(String inKey, String inYear,  String inMonth, String inType, Double inAmount){

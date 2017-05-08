@@ -12,19 +12,19 @@
     <string name="gas">Gas</string>
     <string name="groceries">Groceries</string>
     <string name="miscellaneous">Miscellaneous</string>
-    <string name="rent_mortgage">Rent/Mortgage</string>
+    <string name="rent_mortgage">Rent</string>
 
     <string-array name="expenses">
         <item>Show All</item>
         <item>Fun</item>
         <item>Dining Out</item>
         <item>Clothes</item>
-        <item>Miscellanous</item>
+        <item>Miscellaneous</item>
         <item>Gas</item>
         <item>Groceries</item>
         <item>Cellphone</item>
         <item>Savings</item>
-        <item>Rent/Mortgage</item>
+        <item>Rent</item>
         <item>Utilities</item>
     </string-array>
 </resources>
