@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Enter in dollar amount: "
+            android:text="@string/enter_in_dollar_amount"
             android:textAppearance="@style/TextAppearance.AppCompat" />
 
         <EditText
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="23.61"
+            android:hint="@string/_23_61"
             android:inputType="numberDecimal" />
 
     </LinearLayout>
@@ -35,6 +35,6 @@
         android:id="@+id/buttonSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:text="@string/save" />
 
 </LinearLayout>

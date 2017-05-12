@@ -1,7 +1,8 @@
 package jvang.cs.cis3334.budgettracker;
 
 /**
- * Created by mat on 5/8/17.
+ * Created by jvang5 on 5/8/17.
+ * This class just creates a Date that represents today. From this date we will then be able to extract the month and year that we need.
  */
 import java.util.Date;
 
@@ -10,21 +11,13 @@ public class Month {
     private String month;
 
     public Month(){
-
+        today = new Date();
     }
 
-    public Month (Date inDate){
-        today = inDate;
-    }
-
-    public Date getToday() {
-
-        return today;
-    }
-
-    public void setToday(Date today) {
-        this.today = today;
-    }
+    /**
+     * The Date object today is in the form of HH:MM:SS MTH YEAR. Therefore, we need to get the year out of that String format.
+     * @return the year - 4 digits long
+     */
     public String getYear(){
         today = new Date();
 
@@ -34,11 +27,14 @@ public class Month {
         return month;
     }
 
+    /**
+     * The Date object today is in the form of HH:MM:SS MTH YEAR. Therefore, we need to get the month out of that String format. After
+     * obtaining the 3 Characters that represents the month we just need to spell the month out and return it.
+     * @return the month - 3 characters long
+     */
     public String getMonth(){
         today = new Date();
-
         month = today.toString();
-       // year = month.substring(24,28);
 
         if(month.contains("Jan")) {
             month = "January";
@@ -76,7 +72,6 @@ public class Month {
         else if(month.contains("Dec")) {
             month = "December";
         }
-
         return month;
     }
 }

@@ -4,15 +4,22 @@ import java.io.Serializable;
 
 /**
  * Created by jvang5 on 5/3/2017.
+ * This class represents an Expense. In this app an expense will contain 5 things: key (to be distinguishable),
+ * type, amount, year and month. There are 3 constructors and the normal getters/setters for each variable as
+ * well as a newly formatted toString() method.
+ *
  */
-
 public class Expense implements Serializable{
+    //Declaring variables
     private String key;
     private String type;
     private Double amount;
     private String year;
     private String month;
 
+    /**
+     * The 3 methods below are constructors
+     */
     public Expense(){
     }
 
@@ -26,9 +33,6 @@ public class Expense implements Serializable{
         amount = inAmount;
         year = inYear;
         month = inMonth;
-    }
-    public Expense(Double inAmount){
-        amount = inAmount;
     }
 
     public Double getAmount() {
@@ -59,9 +63,12 @@ public class Expense implements Serializable{
         return key;
     }
 
-    public void setKey(String key){this.key = key; }
 
-
+    /**
+     * When an expense's toString is called on this is the format that it will take
+     *
+     * @return the newly formatted string
+     */
     @Override
     public String toString(){
         return year+ " " + month + " " + type + " " + amount;

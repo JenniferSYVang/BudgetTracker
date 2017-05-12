@@ -55,14 +55,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/clothes"
-            tools:ignore="ButtonStyle" />
+            tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
             android:id="@+id/buttonMis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="miscellaneous"
+            android:text="@string/miscellaneousA"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 
@@ -79,7 +79,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/gas"
-            tools:ignore="ButtonStyle" />
+            tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
             android:id="@+id/buttonGroceries"
@@ -103,14 +103,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Cellphone"
-            tools:ignore="ButtonStyle,HardcodedText" />
+            tools:ignore="ButtonStyle,HardcodedText,NestedWeights" />
 
         <Button
             android:id="@+id/buttonSavings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Savings"
+            android:text="@string/savings"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
 
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Rent"
+            android:text="@string/rent"
             tools:ignore="ButtonStyle" />
 
         <Button
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Utilities"
+            android:text="@string/utilities"
             tools:ignore="ButtonStyle" />
 
     </LinearLayout>

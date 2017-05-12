@@ -13,6 +13,21 @@
     <string name="groceries">Groceries</string>
     <string name="miscellaneous">Miscellaneous</string>
     <string name="rent_mortgage">Rent</string>
+    <string name="hello">Hello</string>
+    <string name="delete_an_expense">Delete an Expense</string>
+    <string name="enter_new_expense">Enter New Expense</string>
+    <string name="month">Month</string>
+    <string name="select_an_expense_to_look_at">Select an expense to look at</string>
+    <string name="view_expense">View Expense</string>
+    <string name="_23_61">23.61</string>
+    <string name="enter_in_dollar_amount">Enter in dollar amount:</string>
+    <string name="save">Save</string>
+    <string name="rent">Rent</string>
+    <string name="savings">Savings</string>
+    <string name="utilities">Utilities</string>
+    <string name="miscellaneousA">miscellaneous</string>
+    <string name="an_easier_way_to_keep_track_of_your_spendings">An easier way to keep track of your spendings.</string>
+    <string name="budget_tracker">Budget Tracker</string>
 
     <string-array name="expenses">
         <item>Show All</item>
